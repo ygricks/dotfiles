@@ -4,6 +4,8 @@
 ```bash
 # copy
 pbcopy
+#echo 'some' | pbcopy
+
 # paste
 pbpaste
 ```
