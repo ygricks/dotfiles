@@ -7,6 +7,7 @@ alias gbp='git push --set-upstream origin `git branch --show-current`'
 alias gbpf='git push --set-upstream origin `git branch --show-current` --force'
 alias dsa='docker stop $(docker ps -q)'
 alias usedPorts='netstat -ltnp'
+alias reload="source ~/.bashrc"
 
 
 # terminal copy/paste
