@@ -1,4 +1,6 @@
 #!/bin/bash
 
-source "${PWD}/utils/.utils.sh"
-source "${PWD}/venv/.venv.sh"
+DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+source "${DIR}/utils/.utils.sh"
+source "${DIR}/venv/.venv.sh"
