@@ -6,7 +6,8 @@ alias ll='ls -lFa'
 alias gbp='git push --set-upstream origin `git branch --show-current`'
 alias gbpf='git push --set-upstream origin `git branch --show-current` --force'
 alias dsa='docker stop $(docker ps -q)'
-alias usedPorts='netstat -ltnp'
+alias dria='docker rmi $(docker images -a -q)'
+alias usedPorts='ss -ltnup'
 alias reload="source ~/.bashrc"
 
 
