@@ -85,6 +85,9 @@ parse_git_branch() {
 	git branch 2> /dev/null | sed '/^[^*]/d' | sed 's/* \(.*\)/ \1/'
 }
 
+# SP1
+PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\h\[\033[36m\]`parse_git_branch`\[\e[0m\] \[\e[33m\]\w\[\e[0m\]\n>"
+
 # copy in clipboard the current branch name, need xclip
 cb() {
 	local BRANCH=$(parse_git_branch)
