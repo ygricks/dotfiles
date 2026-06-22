@@ -11,11 +11,24 @@ alias usedPorts='ss -ltnup'
 alias reload="source ~/.bashrc"
 
 
-# terminal copy/paste
+# terminal copy/paste, require xclip
 alias pbcopy="xclip -sel clip"
 alias pbpaste='xclip -selection clipboard -o'
 
-# copy generated uuuid
+# on remote, use file /tmp/pbmem as memory
+pbcopyr() {
+	touch /tmp/pbmem && chmod 600 /tmp/pbmem
+	cat > /tmp/pbmem
+}
+pbpaster() {
+	if [ -f /tmp/pbmem ]; then
+		cat /tmp/pbmem
+	else
+		echo -n ""
+	fi
+}
+
+# generate uuid & copy
 uuid() {
 	# a=$(uuidgen)
 	a="$(< /proc/sys/kernel/random/uuid)"
@@ -23,7 +36,7 @@ uuid() {
 	echo -e "copied\t$a"
 }
 
-# copy current unixtimestamp
+# get current unixtimestamp & copy
 dt() {
 	a="$(date +%s%3N)"
 	echo -n "$a" | pbcopy
@@ -74,11 +87,12 @@ ex ()
 ###### GIT ######
 #################
 
-_declare() {
-	export GITHUB_ACTOR="foo" GITHUB_TOKEN="bar"
-}
+# in case of use gh token
+# _declare() {
+# 	export GITHUB_ACTOR="foo" GITHUB_TOKEN="bar"
+# }
 
-_declare
+# _declare
 
 # return git branch
 parse_git_branch() {
